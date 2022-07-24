@@ -1,0 +1,9 @@
+#opt1 {
+  background-color: aqua;
+}
+#opt2 {
+  background-color: burlywood;
+}
+#options li{
+    margin: 1em 1em;
+}
