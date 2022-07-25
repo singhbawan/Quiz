@@ -6,23 +6,26 @@ function updateQues(num) {
     <div>
         <h3 id="question">${ques[num][0]}</h3>
         <ul id="options">
-            <li data-option="8Z4[1=~">${ques[num][1]}</li>
-            <li data-option="?W&CK0mp">${ques[num][2]}</li>
-            <li data-option="p8Kz5Lx6">${ques[num][3]}</li>
-            <li data-option="Q%dNd2JR">${ques[num][4]}</li>
+            <li class="option" data-option="8Z4[1=~">${ques[num][1]}</li>
+            <li class="option" data-option="?W&CK0mp">${ques[num][2]}</li>
+            <li class="option" data-option="Q%dNd2JR">${ques[num][4]}</li>
+            <li class="option" data-option="p8Kz5Lx6">${ques[num][3]}</li>
         </ul>            
     </div>`;
 
   options = document.querySelector("#options");
-
-  options.addEventListener("click", function (event) {
-    var optionSelected = event.target;
-    logAnswer(optionSelected, num);
-  });
+  setTimeout(() => {
+    options.addEventListener("click", function (event) {
+      var optionSelected = event.target;
+      if (optionSelected.matches(".option")) {
+        logAnswer(optionSelected, num);
+      }
+    });
+  }, 250);
 }
 
 function logAnswer(optionSelected, num) {
-  if (optionSelected.dataset.option == ques[num][5]) {
+  if (optionSelected.dataset.option == atob(ques[num][5])) {
     correctAnswers++;
     time += 5;
     footer1.innerHTML = `
@@ -90,12 +93,10 @@ function endQuiz() {
 
 function shuffleArray(array) {
   var i,
-    lastItem = array.length-1,
+    lastItem = array.length - 1,
     placeholder;
-    
 
   while (lastItem) {
-    
     i = Math.floor(Math.random() * lastItem);
     placeholder = array[i];
     array[i] = array[lastItem];

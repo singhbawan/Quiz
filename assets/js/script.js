@@ -1,19 +1,16 @@
 var ques = [
-  ["Ques1 ", "true", "opt2", "opt3", "opt4", "8Z4[1=~"],
-  ["Ques2 ", "opt1", "opt2", "true", "opt4", "p8Kz5Lx6"],
-  ["Ques3 ", "opt1", "true", "opt3", "opt4", "?W&CK0mp"],
-  ["Ques4 ", "true", "opt2", "opt3", "opt4", "8Z4[1=~"],
-  ["Ques5 ", "opt1", "opt2", "true", "opt4", "p8Kz5Lx6"],
-  ["Ques6 ", "opt1", "opt2", "opt3", "true", "Q%dNd2JR"],
-  ["Ques7 ", "opt1", "opt2", "opt3", "true", "Q%dNd2JR"],
-  ["Ques8 ", "opt1", "true", "opt3", "opt4", "?W&CK0mp"],
-  ["Ques9 ", "true", "opt2", "opt3", "opt4", "8Z4[1=~"],
-  ["Ques10 ", "true", "opt2", "opt3", "opt4", "8Z4[1=~"]
+  ["Ques1 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
+  ["Ques2 ", "opt1", "opt2", "true", "opt4", "cDhLejVMeDY="],
+  ["Ques3 ", "opt1", "true", "opt3", "opt4", "P1cmQ0swbXA="],
+  ["Ques4 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
+  ["Ques5 ", "opt1", "opt2", "true", "opt4", "cDhLejVMeDY="],
+  ["Ques6 ", "opt1", "opt2", "opt3", "true", "USVkTmQySlI="],
+  ["Ques7 ", "opt1", "opt2", "opt3", "true", "USVkTmQySlI="],
+  ["Ques8 ", "opt1", "true", "opt3", "opt4", "P1cmQ0swbXA="],
+  ["Ques9 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
+  ["Ques10 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
 ];
-
-ques = shuffleArray(ques);
-
-
+P1cmQ0swbXA = shuffleArray(ques);
 
 var main1 = document.querySelector("#main1");
 var footer1 = document.querySelector("#footer1");
