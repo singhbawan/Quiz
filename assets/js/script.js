@@ -10,7 +10,7 @@ var ques = [
   ["Ques9 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
   ["Ques10 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
 ];
-P1cmQ0swbXA = shuffleArray(ques);
+ques = shuffleArray(ques);
 
 var main1 = document.querySelector("#main1");
 var footer1 = document.querySelector("#footer1");
