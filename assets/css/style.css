@@ -1,9 +1,8 @@
-#opt1 {
-  background-color: aqua;
-}
-#opt2 {
-  background-color: burlywood;
-}
+
 #options li{
-    margin: 1em 1em;
+    margin: 1em;
+    padding: 1em;
+    width: 50vw;
+    background-color: aqua;
+    cursor: pointer;
 }
