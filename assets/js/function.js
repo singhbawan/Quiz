@@ -82,7 +82,10 @@ function endQuiz() {
         <p>Wrong Answers = ${count - correctAnswers}</p>
         <p>Time Left = ${timeTaken}</p>
     </div>
+    <a href="./index.html">Take Quiz again!</a>
     `;
+
+  updateScore("bawan", timeTaken, correctAnswers);
 
   footer1.innerHTML = `
     <div>
@@ -104,4 +107,35 @@ function shuffleArray(array) {
     lastItem--;
   }
   return array;
+}
+
+function setHighScore(name, bestTime) {
+  localStorage.setItem("name", name);
+  localStorage.setItem("time", bestTime);
+}
+
+function updateScore(name, time, score) {
+  var currHS = getScore();
+  currHS.push([name, time, score]);
+
+  localStorage.setItem("currHighScore", JSON.stringify(currHS));
+}
+
+function getScore() {
+  var currHS = JSON.parse(localStorage.getItem("currHighScore"));
+  if (!currHS) {
+    currHS = [];
+  }
+
+  // currHS.sort((a, b) => b[2] - a[2]);
+
+  currHS.sort(function (a, b) {
+    if (b[2] - a[2]) {
+      return b[2] - a[2];
+    } else {
+      return b[1] - a[1];
+    }
+  });
+
+  return currHS;
 }

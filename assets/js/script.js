@@ -10,12 +10,14 @@ var ques = [
   ["Ques9 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
   ["Ques10 ", "true", "opt2", "opt3", "opt4", "OFo0WzE9fg=="],
 ];
+
 ques = shuffleArray(ques);
 
 var main1 = document.querySelector("#main1");
 var footer1 = document.querySelector("#footer1");
 var start1 = document.querySelector("#start1");
 var timerEl = document.querySelector("#timer");
+
 var count = 0;
 var options;
 var time = 30;
