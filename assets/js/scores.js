@@ -16,5 +16,3 @@ highscorearr.forEach((score) => {
                     `;
   tableEl.append(tableRow);
 });
-
-// updateScore();

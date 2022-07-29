@@ -2,15 +2,16 @@
 
 function updateQues(num) {
   main1.innerHTML = `
-    <h1>Quiz</h1>
-    <div>
-        <h3 id="question">${ques[num][0]}</h3>
-        <ul id="options">
-            <li class="option" data-option="8Z4[1=~">${ques[num][1]}</li>
-            <li class="option" data-option="?W&CK0mp">${ques[num][2]}</li>
-            <li class="option" data-option="Q%dNd2JR">${ques[num][4]}</li>
-            <li class="option" data-option="p8Kz5Lx6">${ques[num][3]}</li>
+  <div class = "question-wrapper">
+        
+        <h3 id="question" class = "question">${ques[num][0]}</h3>
+        <ul id="options" class = "options">
+            <li class="option btn" data-option="8Z4[1=~">${ques[num][1]}</li>
+            <li class="option btn" data-option="?W&CK0mp">${ques[num][2]}</li>
+            <li class="option btn" data-option="Q%dNd2JR">${ques[num][4]}</li>
+            <li class="option btn" data-option="p8Kz5Lx6">${ques[num][3]}</li>
         </ul>            
+    
     </div>`;
 
   options = document.querySelector("#options");
@@ -29,14 +30,14 @@ function logAnswer(optionSelected, num) {
     correctAnswers++;
     time += 5;
     footer1.innerHTML = `
-        <div>
+        <div class = "right">
             <h3>Right</h3>
         </div>
         `;
   } else {
     time -= 10;
     footer1.innerHTML = `
-            <div>
+            <div class = "wrong">
                 <h3>Wrong</h3>
             </div>
             `;
@@ -54,7 +55,7 @@ function logAnswer(optionSelected, num) {
 function runTimer() {
   time--;
   timerEl.innerHTML = `
-    timer = ${time}
+    Time: ${time}
     `;
   if (time <= 0) {
     clearTimer();
@@ -68,24 +69,38 @@ function clearTimer() {
     timeTaken = 0;
   }
   timerEl.innerHTML = `
-    time's up!
+    Time's up!
     `;
   clearInterval(timerInterval);
 }
 
 function endQuiz() {
   main1.innerHTML = `
-    <h1>QUIZ END</h1>
+    <h1 class ="title">QUIZ END</h1>
+    <div class = "wrapper">
     <div>
-        <p>Correct Answers = ${correctAnswers}</p>
-        <p>Unattempted Questions = ${ques.length - count}</p>
-        <p>Wrong Answers = ${count - correctAnswers}</p>
-        <p>Time Left = ${timeTaken}</p>
+        <p class="score">Correct Answers = ${correctAnswers}</p>
+        <p class="score">Unattempted Questions = ${ques.length - count}</p>
+        <p class="score">Wrong Answers = ${count - correctAnswers}</p>
+        <p class="score">Time Left = ${timeTaken}</p>
     </div>
-    <a href="./index.html">Take Quiz again!</a>
+    <div class= "form">
+    <label for="name" class="form-input score">Insert name to save the score:</label>
+    <br>
+    <input class="form-input" type="text" id="name1" name="name" required minlength="4" maxlength="16" size="16"
+        placeholder="Full Name" />
+    <br>
+    <input class="form-input btn" id="submit1" type="submit" value="Submit">
+    </div>
+    </div>
+    <a class="btn" href="./index.html">Take Quiz again!</a>
     `;
 
-  updateScore("bawan", timeTaken, correctAnswers);
+  document.querySelector("#submit1").addEventListener("click", function () {
+    var playerName = document.querySelector("#name1").value;
+    updateScore(playerName, timeTaken, correctAnswers);
+    document.querySelector("#name1").value = "";
+  });
 
   footer1.innerHTML = `
     <div>
@@ -109,11 +124,6 @@ function shuffleArray(array) {
   return array;
 }
 
-function setHighScore(name, bestTime) {
-  localStorage.setItem("name", name);
-  localStorage.setItem("time", bestTime);
-}
-
 function updateScore(name, time, score) {
   var currHS = getScore();
   currHS.push([name, time, score]);
@@ -127,14 +137,8 @@ function getScore() {
     currHS = [];
   }
 
-  // currHS.sort((a, b) => b[2] - a[2]);
-
   currHS.sort(function (a, b) {
-    if (b[2] - a[2]) {
-      return b[2] - a[2];
-    } else {
-      return b[1] - a[1];
-    }
+    return b[2] - a[2] ? b[2] - a[2] : b[1] - a[1];
   });
 
   return currHS;
