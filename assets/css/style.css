@@ -198,3 +198,10 @@ main {
   font-weight: 300;
   margin: 4px;
 }
+
+.table {
+  background-color: burlywood;
+  width: 80vh;
+  font-size: 20px;
+  text-align: center;
+}
